@@ -468,6 +468,8 @@ button.workflow-agent-orb[aria-pressed="true"] {
 /* One step, in full. */
 .step-detail {
   display: grid;
+  /* minmax(0, …): a long line of code scrolls inside its block instead of widening the column. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   margin-top: 10px;
 }

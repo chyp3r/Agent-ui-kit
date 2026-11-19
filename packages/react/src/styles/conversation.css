@@ -424,6 +424,10 @@
   margin: 0;
   color: var(--secondary-foreground);
 }
+/* A tag is as wide as its text, not as its grid track. */
+.record-row .tag-chip {
+  justify-self: start;
+}
 @media (max-width: 640px) {
   .record-row {
     grid-template-columns: max-content minmax(0, 1fr);

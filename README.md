@@ -15,6 +15,19 @@ apps/
 docs/                         architecture · protocol · adapters · customizing · theming
 ```
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Home](ss/01-home.png) **Home.** The empty screen teaches what can be asked | ![Chart answer and flow map](ss/02-chart-answer-and-flow.png) **Answer + live flow map.** Every visit, handoff and tool call |
+| ![Step detail](ss/03-step-detail-query.png) **Step detail.** The query an agent ran and its result | ![Replan loop](ss/04-replan-loop.png) **Replan.** The reviewer sends the work back; pass 2 is drawn below pass 1 |
+| ![Sources](ss/05-sources.png) **Sources.** Filter by tag, search, follow a tag from the answer | ![Human approval](ss/06-human-approval.png) **Human approval.** The run waits for a person before an irreversible step |
+| ![Live reasoning](ss/07-live-reasoning.png) **Reasoning.** Streamed model reasoning in a fold | ![Light theme](ss/08-light-theme.png) **Light theme.** Same tokens, AA contrast tested |
+| ![English](ss/09-english.png) **English.** Turkish is the default, every string is a key | ![Error state](ss/10-error-state.png) **Error.** The question keeps its place and says what went wrong |
+| ![Gallery](ss/11-gallery.png) **Gallery.** Every component in every state, no backend | ![Mobile](ss/12-mobile.png) **Phone width.** |
+
+Regenerate them against a running stack: `npm i --no-save playwright-core && node scripts/screenshots.mjs`.
+
 ## Run it
 
 With Docker (nothing else to install):
