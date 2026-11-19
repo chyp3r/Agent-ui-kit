@@ -7,7 +7,7 @@ services:
     command: ["node", "--experimental-strip-types", "--no-warnings", "packages/mock/src/cli.ts", "--speed", "${MOCK_SPEED:-1}", "--lang", "${MOCK_LANG:-tr}"]
     ports: ["18100:18100"]
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:18100/api/health"]
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:18100/api/health"]
       interval: 5s
       timeout: 3s
       retries: 10

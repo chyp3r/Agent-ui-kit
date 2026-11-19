@@ -1,6 +1,6 @@
 # One image definition for everything: build context is the repository root.
 #
-#   docker build --target check -t agent-kit:check .     typecheck + tests + build + clean gate
+#   docker compose --profile test run --rm check         typecheck + tests + build + clean gate
 #   docker build --target web   -t agent-kit:web   .     the starter, served by nginx
 #   docker build --target mock  -t agent-kit:mock  .     the backend-free mock server
 
@@ -17,9 +17,10 @@ RUN npm ci
 FROM deps AS source
 COPY . .
 
-# Fails the build if types, tests, the production build or the domain-clean gate fail.
+# Run, not built: the container's exit code is the verdict (types, tests, the production
+# build and the domain-clean gate), so CI and a laptop see the same thing.
 FROM source AS check
-RUN npm run check
+CMD ["npm", "run", "check"]
 
 FROM source AS build
 RUN npm run build
