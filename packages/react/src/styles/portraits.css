@@ -1,0 +1,235 @@
+/* ---------------------------------------------------------------------------
+   The team's motion. A portrait moves only while its agent is at work, and only
+   the part that is doing the work moves. */
+.agent-portrait {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.agent-portrait svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.agent-portrait [class^="ap-"] {
+  transform-box: view-box;
+}
+.agent-portrait .ap-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.agent-portrait[data-active] .ap-eye {
+  animation: ap-blink 3.8s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-beacon {
+  animation: state-pulse 1.4s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-head {
+  transform-origin: 60px 78px;
+  animation: ap-head 4.6s ease-in-out infinite;
+}
+@keyframes ap-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.12);
+  }
+}
+@keyframes ap-head {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-2.4deg);
+  }
+  70% {
+    transform: rotate(2.4deg);
+  }
+}
+.agent-portrait .ap-needle {
+  transform-origin: 90px 92px;
+}
+.agent-portrait[data-active] .ap-needle {
+  animation: ap-needle 3.2s ease-in-out infinite;
+}
+@keyframes ap-needle {
+  0%,
+  100% {
+    transform: rotate(-24deg);
+  }
+  35% {
+    transform: rotate(46deg);
+  }
+  65% {
+    transform: rotate(8deg);
+  }
+}
+.agent-portrait[data-active] .ap-glass {
+  animation: ap-glass 2.6s ease-in-out infinite;
+}
+@keyframes ap-glass {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-7px, -3px);
+  }
+  66% {
+    transform: translate(-2px, -8px);
+  }
+}
+.agent-portrait[data-active] .ap-disk {
+  animation: ap-disk 1.8s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-disk-2 {
+  animation-delay: 0.18s;
+}
+.agent-portrait[data-active] .ap-disk-3 {
+  animation-delay: 0.36s;
+}
+@keyframes ap-disk {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-3px);
+    opacity: 0.72;
+  }
+}
+.agent-portrait .ap-hand-long,
+.agent-portrait .ap-hand-short {
+  transform-origin: 90px 92px;
+}
+.agent-portrait[data-active] .ap-hand-long {
+  animation: ap-turn 2.8s linear infinite;
+}
+.agent-portrait[data-active] .ap-hand-short {
+  animation: ap-turn 16s linear infinite;
+}
+.agent-portrait .ap-sweep {
+  transform-origin: 90px 92px;
+}
+.agent-portrait[data-active] .ap-sweep {
+  animation: ap-turn 2.4s linear infinite;
+}
+.agent-portrait[data-active] .ap-ping {
+  animation: state-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ap-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.agent-portrait .ap-check {
+  stroke-dasharray: 1;
+}
+.agent-portrait[data-active] .ap-check {
+  animation: ap-check 2.4s var(--ease-out) infinite;
+}
+@keyframes ap-check {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  45%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.agent-portrait .ap-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+.agent-portrait[data-active] .ap-bar {
+  animation: ap-bar 1.6s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-bar-2 {
+  animation-delay: 0.16s;
+}
+.agent-portrait[data-active] .ap-bar-3 {
+  animation-delay: 0.32s;
+}
+@keyframes ap-bar {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.55);
+  }
+}
+.agent-portrait[data-active] .ap-wave {
+  animation: state-pulse 1.5s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-wave-2 {
+  animation-delay: 0.25s;
+}
+.agent-portrait[data-active] .ap-dot {
+  animation: ap-dot 1.2s ease-in-out infinite;
+}
+.agent-portrait[data-active] .ap-dot-2 {
+  animation-delay: 0.14s;
+}
+.agent-portrait[data-active] .ap-dot-3 {
+  animation-delay: 0.28s;
+}
+@keyframes ap-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
+.agent-portrait .ap-wave-arm {
+  transform-origin: 92px 104px;
+}
+.agent-portrait[data-active] .ap-wave-arm {
+  animation: ap-wave-arm 2.2s ease-in-out infinite;
+}
+@keyframes ap-wave-arm {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Less movement asked for: the signal stays, the travel goes. Losing "the agent is
+   working" entirely would be a worse answer than a still arc that says so. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+  .text-shimmer {
+    background: none;
+    color: var(--secondary-foreground);
+  }
+  .pending-card::before {
+    --pending-sweep: 40deg;
+  }
+}
+

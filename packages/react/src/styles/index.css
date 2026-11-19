@@ -1,0 +1,15 @@
+/* The kit's styles. Import once, after Tailwind:
+     @import "tailwindcss";
+     @source "../node_modules/@agent-kit/react/src";
+     @import "@agent-kit/react/styles.css";
+   Fonts come with the build: nothing here reaches for the internet, so the UI works air-gapped. */
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/jetbrains-mono";
+@import "./tokens.css";
+@import "./base.css";
+@import "./shell.css";
+@import "./workflow.css";
+@import "./conversation.css";
+@import "./sources.css";
+@import "./portraits.css";
+@import "./extras.css";

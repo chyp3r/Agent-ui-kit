@@ -4,7 +4,8 @@ import type { AgentKit } from "../registry/kit";
 import { emptyKit } from "../registry/kit";
 import type { Turn } from "../session/turn";
 import { compactEvents } from "../session/turn";
-import { foldFlow, visitDuration } from "./fold";
+import { foldTurn } from "./turnFlow";
+import { visitDuration } from "./fold";
 
 /** A run as a file: enough to open it again in any kit-based UI. */
 export function traceJson(turn: Turn): string {
@@ -44,7 +45,7 @@ export function parseTrace(text: string): Turn | null {
 
 /** A run as a readable report: who ran, what they called, in order. */
 export function traceMarkdown(turn: Turn, kit: AgentKit = emptyKit, locale: Locale = "tr"): string {
-  const flow = foldFlow(turn.events, { final: true }, kit);
+  const flow = foldTurn(turn, kit);
   const lines = [`# ${turn.question}`, ""];
   flow.visits.forEach((visit, index) => {
     const agent = kit.agent(visit.node, visit.title, locale);

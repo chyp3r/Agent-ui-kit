@@ -1,0 +1,211 @@
+/* ---------------------------------------------------------------------------
+   Added by the kit: code blocks, message actions, reasoning, approvals, theme. */
+
+/* Code */
+.code-block {
+  margin: 0.75rem 0;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  background: var(--code-bg);
+  overflow: hidden;
+}
+.code-block figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font: 500 11px/1 var(--font-mono);
+  text-transform: lowercase;
+}
+.code-block pre {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  overflow-x: auto;
+  color: var(--code-fg);
+  font: 400 12.5px/1.6 var(--font-mono);
+  background: transparent;
+}
+.code-block code {
+  font: inherit;
+  background: none;
+  padding: 0;
+}
+.tok-keyword {
+  color: var(--primary);
+  font-weight: 600;
+}
+.tok-string {
+  color: var(--success);
+}
+.tok-number {
+  color: var(--accent-foreground);
+}
+.tok-comment {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+/* Message actions */
+.message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  opacity: 0.85;
+}
+.message-actions:hover,
+.message-actions:focus-within {
+  opacity: 1;
+}
+.message-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 28px;
+  padding: 0 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.message-actions button:hover {
+  border-color: var(--border);
+  background: var(--secondary);
+  color: var(--foreground);
+}
+.message-actions button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  color: var(--primary);
+}
+.message-rating {
+  display: inline-flex;
+  gap: 0.1rem;
+  margin: 0 0.25rem;
+}
+
+/* Reasoning */
+.reasoning-block {
+  margin: 0.5rem 0;
+  border-left: 2px solid var(--border);
+  padding-left: 0.75rem;
+}
+.reasoning-block[data-live] {
+  border-left-color: var(--accent);
+}
+.reasoning-block > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0;
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+}
+.reasoning-block > button:hover {
+  color: var(--foreground);
+}
+.reasoning-block > p {
+  margin: 0.35rem 0 0;
+  max-height: 14rem;
+  overflow: auto;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Approval */
+.approval-card {
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in srgb, var(--accent) 8%, var(--card));
+}
+.approval-card[data-state="approved"] {
+  border-color: color-mix(in srgb, var(--success) 55%, var(--border));
+  background: color-mix(in srgb, var(--success) 8%, var(--card));
+}
+.approval-card[data-state="rejected"] {
+  border-color: var(--border);
+  background: var(--card);
+}
+.approval-card header {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+.approval-card header svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--accent-foreground);
+}
+.approval-card header p {
+  margin: 0.2rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+.approval-card .detail-args {
+  margin-top: 0.6rem;
+}
+.approval-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.approval-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 32px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-size: 13px;
+  font-weight: 500;
+}
+.approval-actions button[data-approve] {
+  border-color: transparent;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.approval-state {
+  margin: 0.6rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.theme-toggle:hover {
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+/* Reduced motion: nothing here moves except what the reader asked for. */
+@media (prefers-reduced-motion: reduce) {
+  .message-actions,
+  .theme-toggle {
+    transition: none;
+  }
+}

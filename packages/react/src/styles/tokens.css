@@ -1,0 +1,137 @@
+
+/* Registered so it can be animated at all: an unregistered custom property does
+   not interpolate. The angle of the working card's frame light. */
+@property --pending-sweep {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  /* One palette per theme. Dark is the default; an amber means "work in progress"
+     and nothing else. The names follow shadcn's so the Tailwind utilities read them.
+     Every colour on screen is one of these: re-theme the kit by editing this block. */
+  color-scheme: dark;
+  --background: #0b111c;
+  --foreground: #e7eef7;
+  --card: #111a29;
+  --card-foreground: #e7eef7;
+  --card-raised: #162132;
+  --popover: #18243a;
+  --popover-foreground: #e7eef7;
+  --primary: #5cc2f5;
+  --primary-foreground: #06121e;
+  --secondary: #1a2638;
+  --secondary-foreground: #d3dfed;
+  --muted: #151f2f;
+  --muted-foreground: #98a9bf;
+  /* The fill accent: a mark, an edge, a trace. Its text twin is below. */
+  --accent: #f2a93b;
+  --accent-foreground: #f7c078;
+  --success: #43c587;
+  --warning: #e5b454;
+  --destructive: #f0705a;
+  --border: #243246;
+  --input: #1c2839;
+  --ring: #5cc2f5;
+  --sidebar: #0d1420;
+  --sidebar-border: #1e2a3c;
+  /* Chart categories, in this order: validated against --card (CVD, contrast). */
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --chart-6: #008300;
+  --chart-7: #9085e9;
+  --chart-8: #e66767;
+  --radius: 0.5rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Code surfaces and the text that sits on them. */
+  --code-bg: #0a1019;
+  --code-fg: #b9e6ff;
+  --tag-fg: #a9dcf8;
+  --danger-fg: #ffc7bb;
+  --shadow: #000;
+}
+
+/* Light. Chosen with data-theme="light", or by the OS when no theme is set. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f4f6fa;
+  --foreground: #121a27;
+  --card: #ffffff;
+  --card-foreground: #121a27;
+  --card-raised: #f0f3f8;
+  --popover: #ffffff;
+  --popover-foreground: #121a27;
+  --primary: #0b6aa8;
+  --primary-foreground: #ffffff;
+  --secondary: #e7ecf4;
+  --secondary-foreground: #263447;
+  --muted: #eef1f6;
+  --muted-foreground: #4b5d74;
+  --accent: #c47a0a;
+  --accent-foreground: #8a5200;
+  --success: #12794a;
+  --warning: #8a6100;
+  --destructive: #b3361f;
+  --border: #d3dbe7;
+  --input: #e3e9f2;
+  --ring: #0b6aa8;
+  --sidebar: #eaeef5;
+  --sidebar-border: #d3dbe7;
+  --code-bg: #eaf0f8;
+  --code-fg: #0a4f7d;
+  --tag-fg: #0a4f7d;
+  --danger-fg: #8f2a16;
+  --shadow: #5b6b82;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --background: #f4f6fa;
+    --foreground: #121a27;
+    --card: #ffffff;
+    --card-foreground: #121a27;
+    --card-raised: #f0f3f8;
+    --popover: #ffffff;
+    --popover-foreground: #121a27;
+    --primary: #0b6aa8;
+    --primary-foreground: #ffffff;
+    --secondary: #e7ecf4;
+    --secondary-foreground: #263447;
+    --muted: #eef1f6;
+    --muted-foreground: #4b5d74;
+    --accent: #c47a0a;
+    --accent-foreground: #8a5200;
+    --success: #12794a;
+    --warning: #8a6100;
+    --destructive: #b3361f;
+    --border: #d3dbe7;
+    --input: #e3e9f2;
+    --ring: #0b6aa8;
+    --sidebar: #eaeef5;
+    --sidebar-border: #d3dbe7;
+    --code-bg: #eaf0f8;
+    --code-fg: #0a4f7d;
+    --tag-fg: #0a4f7d;
+    --danger-fg: #8f2a16;
+    --shadow: #5b6b82;
+  }
+}
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+}
+

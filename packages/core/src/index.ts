@@ -8,6 +8,7 @@ export * from "./adapters/langgraph";
 export * from "./registry/kit";
 export * from "./flow/fold";
 export * from "./flow/export";
+export * from "./flow/turnFlow";
 export * from "./session/turn";
 export * from "./session/store";
 export * from "./session/memory";

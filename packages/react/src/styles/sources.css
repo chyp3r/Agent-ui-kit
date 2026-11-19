@@ -1,0 +1,202 @@
+/* ---------------------------------------------------------------------------
+   Evidence and chart */
+.sources-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.sources-head h2 {
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.sources-head p {
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.sources-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  border-radius: 9px;
+  padding: 0 10px;
+  background: var(--input);
+  color: var(--muted-foreground);
+}
+.sources-search:focus-within {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+.sources-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 8px 0;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 13px;
+}
+.sources-search input::-webkit-search-cancel-button {
+  display: none;
+}
+.sources-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.sources-tags button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 9px;
+  color: var(--secondary-foreground);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease;
+}
+.sources-tags button span {
+  color: var(--muted-foreground);
+}
+.sources-tags button:hover {
+  border-color: var(--primary);
+}
+.sources-tags button[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+}
+.sources-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sources-list > li {
+  border-top: 1px solid var(--border);
+  padding: 9px 0;
+}
+.sources-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+.sources-line time {
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.sources-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--secondary-foreground);
+  font-size: 12px;
+  font-weight: 550;
+}
+.sources-confidence {
+  margin-left: auto;
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+}
+.sources-list p {
+  margin-top: 4px;
+  color: var(--secondary-foreground);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.sources-empty {
+  color: var(--muted-foreground) !important;
+}
+.sources-none {
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+.chart-panel {
+  display: grid;
+  gap: 18px;
+}
+.chart-view figcaption {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.chart-plot {
+  width: 100%;
+  min-width: 0;
+}
+.answer-chart {
+  margin: 0.4em 0 0;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 14px 14px 8px;
+  background: var(--card);
+}
+.chart-pending {
+  border: 1px dashed var(--border);
+  border-radius: 13px;
+  padding: 26px;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+  text-align: center;
+}
+.chart-tooltip {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 6px 10px;
+  background: var(--popover);
+  box-shadow: 0 14px 28px -18px var(--shadow);
+}
+.chart-tooltip strong {
+  font-size: 13px;
+}
+.chart-tooltip span {
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--secondary-foreground);
+  font-size: 12px;
+}
+.chart-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chart-legend span {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+.chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.chart-table th {
+  border-bottom: 1px solid var(--muted-foreground);
+  padding: 5px 0;
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-align: left;
+}
+.chart-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+}
+.chart-table [data-numeric] {
+  text-align: right;
+}
+
