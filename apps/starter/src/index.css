@@ -1,0 +1,4 @@
+@import "tailwindcss";
+/* Tailwind scans the kit's components for the utility classes they use. */
+@source "../../../packages/react/src";
+@import "@agent-kit/react/styles.css";

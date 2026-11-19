@@ -1,0 +1,26 @@
+# docker compose up --build               the starter on :8080 against the mock backend
+# docker compose --profile test run --rm check
+#                                         typecheck, tests, build and the clean gate, in a container
+services:
+  mock:
+    build: { context: ., target: mock }
+    command: ["node", "--experimental-strip-types", "--no-warnings", "packages/mock/src/cli.ts", "--speed", "${MOCK_SPEED:-1}", "--lang", "${MOCK_LANG:-tr}"]
+    ports: ["18100:18100"]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:18100/api/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  web:
+    build: { context: ., target: web }
+    environment:
+      # Point this at your own backend to use the starter against it.
+      API_UPSTREAM: ${API_UPSTREAM:-http://mock:18100}
+    ports: ["${WEB_PORT:-8080}:80"]
+    depends_on:
+      mock: { condition: service_healthy }
+
+  check:
+    profiles: ["test"]
+    build: { context: ., target: check }
