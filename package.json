@@ -1,0 +1,32 @@
+{
+  "name": "agent-ui-kit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Template for building live multi-agent interfaces: flow map, tool calls, sources, charts.",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @agent-kit/starter",
+    "mock": "npm run start -w @agent-kit/mock",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "npm run build -w @agent-kit/starter",
+    "check": "npm run typecheck && npm test && npm run build && node scripts/check-clean.mjs"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.10.0",
+    "jsdom": "^30.0.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
