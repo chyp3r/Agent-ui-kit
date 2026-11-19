@@ -73,3 +73,12 @@ with no backend; `?lang=en` switches the language.
 - The UI shows only what the backend reported. No timer fakes progress; times are this browser's measurement.
 - One palette per theme, in `packages/react/src/styles/tokens.css`. A test fails if text drops below AA.
 - Nothing domain-specific lives in the packages (`npm run check` greps for it).
+
+## License
+
+[MIT](LICENSE): use it, change it, ship it, in open or closed projects; keep the copyright notice.
+
+Bundled third-party assets keep their own licenses. The fonts Geist and JetBrains Mono (via `@fontsource`) are
+under the SIL Open Font License 1.1, which permits bundling and redistribution with software. The npm
+dependencies are installed, not copied into this repository; check `npm ls --all` and their licenses if you
+need a full inventory for compliance.
