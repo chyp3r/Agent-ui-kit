@@ -18,7 +18,7 @@ FROM deps AS source
 COPY . .
 
 # Run, not built: the container's exit code is the verdict (types, tests, the production
-# build and the domain-clean gate), so CI and a laptop see the same thing.
+# build and the domain-clean gate), the same on any machine.
 FROM source AS check
 CMD ["npm", "run", "check"]
 

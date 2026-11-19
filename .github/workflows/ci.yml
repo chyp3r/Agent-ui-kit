@@ -1,9 +1,0 @@
-name: ci
-on: [push, pull_request]
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: typecheck, test, build, clean gate (in the same image as local)
-        run: docker compose --profile test run --rm check
